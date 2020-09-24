@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="650.0" maxWidth="1080.0" minHeight="650.0" minWidth="1080.0" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.velasteguicorps.analizador_lexico.Controller.FXMLPrincipal">
+   <columnConstraints>
+      <ColumnConstraints maxWidth="540.0" minWidth="540.0" prefWidth="540.0" />
+      <ColumnConstraints maxWidth="540.0" minWidth="540.0" prefWidth="540.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="650.0" minHeight="650.0" prefHeight="650.0" />
+   </rowConstraints>
+   <children>
+      <StackPane maxHeight="214.0" maxWidth="540.0" minHeight="214.0" minWidth="540.0" prefHeight="214.0" prefWidth="540.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <children>
+            <Label maxHeight="40.0" maxWidth="75.0" minHeight="40.0" minWidth="75.0" prefHeight="40.0" prefWidth="75.0" text="Resultados" textFill="#223880" StackPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtResultados" maxHeight="154.0" maxWidth="530.0" minHeight="154.0" minWidth="530.0" prefHeight="154.0" prefWidth="530.0" StackPane.alignment="CENTER" />
+         </children>
+      </StackPane>
+      <TabPane fx:id="tabPanePrincipal" maxHeight="436.0" maxWidth="540.0" minHeight="436.0" minWidth="540.0" prefHeight="436.0" prefWidth="540.0" styleClass="tabPanePrincipal" stylesheets="@../styles/Styles.css" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="25.0" tabMaxWidth="150.0" tabMinHeight="25.0" tabMinWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <tabs>
+            <Tab fx:id="tabCode" text="Nuevo">
+               <content>
+                  <GridPane maxHeight="400.0" maxWidth="540.0" minHeight="400.0" minWidth="540.0" prefHeight="400.0" prefWidth="540.0">
+                     <columnConstraints>
+                        <ColumnConstraints maxWidth="540.0" minWidth="540.0" prefWidth="540.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="400.0" minHeight="400.0" prefHeight="400.0" />
+                     </rowConstraints>
+                     <children>
+                        <ScrollPane maxHeight="400.0" maxWidth="540.0" minHeight="400.0" minWidth="540.0" prefHeight="400.0" prefWidth="540.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                           <content>
+                              <StackPane fx:id="stackPaneCode" maxHeight="400.0" maxWidth="520.0" minHeight="400.0" minWidth="520.0" prefHeight="400.0" prefWidth="520.0">
+                                 <children>
+                                    <TextArea fx:id="txtCode" maxHeight="400.0" maxWidth="475.0" minHeight="400.0" minWidth="475.0" prefHeight="400.0" prefWidth="475.0" StackPane.alignment="CENTER">
+                                       <StackPane.margin>
+                                          <Insets left="45.0" />
+                                       </StackPane.margin>
+                                    </TextArea>
+                                    <TextArea fx:id="txtLine" maxHeight="400.0" maxWidth="45.0" minHeight="400.0" minWidth="45.0" prefHeight="400.0" prefWidth="45.0" styleClass="txtLines" stylesheets="@../styles/Styles.css" StackPane.alignment="CENTER_LEFT" />
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </GridPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <VBox maxHeight="650.0" maxWidth="540.0" minHeight="650.0" minWidth="540.0" prefHeight="650.0" prefWidth="540.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <children>
+            <TableView fx:id="tableLexico" maxHeight="500.0" maxWidth="450.0" minHeight="500.0" minWidth="450.0" prefHeight="500.0" prefWidth="450.0" styleClass="tableViewToken" stylesheets="@../styles/Styles.css">
+               <columns>
+                  <TableColumn fx:id="tabValor" prefWidth="75.0" text="Token" />
+                  <TableColumn fx:id="tabTipo" prefWidth="75.0" text="Tipo" />
+                  <TableColumn fx:id="tabLinea" prefWidth="75.0" text="Linea" />
+                  <TableColumn fx:id="tabColumn" prefWidth="75.0" text="Columna" />
+               </columns>
+               <VBox.margin>
+                  <Insets left="45.0" right="45.0" />
+               </VBox.margin>
+            </TableView>
+            <HBox maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+               <VBox.margin>
+                  <Insets bottom="70.0" left="45.0" right="45.0" top="50.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="labelNumero" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" prefHeight="30.0" prefWidth="250.0" />
+                  <Button maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" onAction="#onCompile" prefHeight="30.0" prefWidth="80.0" styleClass="buttonCompile" stylesheets="@../styles/Styles.css" text="Compilar">
+                     <HBox.margin>
+                        <Insets left="120.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
